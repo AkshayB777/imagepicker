@@ -1,0 +1,10 @@
+<resources>
+	<string name="app_name">ImagePicker</string>
+	<string name="storage_permissions_required">Storage Permission required</string>
+	<string name="images_not_available">No images available</string>
+	<string name="done">Done</string>
+	<string name="num_num_selected_image">%d/%d images are selected</string>
+	<string name="num_images_selected">%d images are selected</string>
+	<string name="select_atleast_image">Select atleast %d image</string>
+	<string name="select_atleast_images">Select atleast %d images</string>
+</resources>

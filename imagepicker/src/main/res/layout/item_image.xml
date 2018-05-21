@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<data>
+
+		<import
+			type="android.view.View"/>
+
+		<variable
+			name="handler"
+			type="com.ab.imagepicker.adapter.ImagePickerAdapter.ImagePickViewHolder"/>
+
+		<variable
+			name="imageModel"
+			type="com.ab.imagepicker.viewmodel.ImageViewModel"/>
+	</data>
+
+	<android.support.constraint.ConstraintLayout
+		android:id="@+id/parent"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@android:color/transparent"
+		android:padding="4dp">
+
+		<ImageView
+			android:id="@+id/iv_image"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:clickable="true"
+			android:contentDescription="@null"
+			android:focusable="true"
+			android:foreground="@drawable/checkable_selector"
+			android:onClick="@{() -> handler.onItemClicked()}"
+			android:scaleType="centerCrop"
+			app:imagePath="@{imageModel.imagePath}"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:loading="@{imageModel.isLoading}"
+			app:selected="@{imageModel.isSelected}"
+			app:srcCompat="@drawable/ic_image_thumbnail"/>
+
+		<ProgressBar
+			android:id="@+id/progressBar"
+			style="?android:attr/progressBarStyleSmall"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:visibility="@{imageModel.isLoading.get()? View.VISIBLE : View.GONE}"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"/>
+	</android.support.constraint.ConstraintLayout>
+</layout>
